@@ -40,19 +40,6 @@ public class ExplodingGame {
         Core.renderLayer(99).onEvent(() -> player.draw());
         Core.renderLayer(3).onEvent(() -> map.draw());
         
-        Input.whileKey(Keyboard.KEY_W, true).onEvent(() -> {
-            player.pos = player.pos.add(new Vec2(0,1).multiply(SPEED));
-        });
-        Input.whileKey(Keyboard.KEY_A, true).onEvent(() -> {
-            player.pos = player.pos.add(new Vec2(-1,0).multiply(SPEED));
-        });
-        Input.whileKey(Keyboard.KEY_S, true).onEvent(() -> {
-            player.pos = player.pos.add(new Vec2(0,-1).multiply(SPEED));
-        });
-        Input.whileKey(Keyboard.KEY_D, true).onEvent(() -> {
-            player.pos = player.pos.add(new Vec2(1,0).multiply(SPEED));
-        });
-        
         Core.run();
     }
     
