@@ -22,7 +22,7 @@ import util.Vec2;
 public class ExplodingGame {
     
     public static final int SCALE = 5;
-    public static final int SPEED = 5;
+    public static /*final*/ double SPEED = 1;
     
     public static void main(String[] args) {
         // TODO code application logic here
@@ -33,6 +33,7 @@ public class ExplodingGame {
         
         Level map = new Level(Level.genLevel(50, 50, 0), new Sprite("stone1"), 50, 50);
         Player player = new Player(new Sprite("player1"),Vec2.ZERO);
+        player.init();
         
         Window2D.viewPos =  Window2D.LR();
         

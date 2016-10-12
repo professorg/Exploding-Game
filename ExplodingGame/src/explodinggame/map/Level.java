@@ -14,6 +14,7 @@ import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_MAG_FILTER;
 import static org.lwjgl.opengl.GL11.glTexParameteri;
 import util.Color4;
+import util.Noise;
 import util.Util;
 import util.Vec2;
 
@@ -39,13 +40,15 @@ public class Level {
     public static Tile[][] genLevel(int x, int y, int seed) {
 
         Tile[][] out = new Tile[x][y];
-        Random r = new Random(seed);
+        //Random r = new Random(seed);
+        Noise n = new Noise(seed);
 
         for (int j = 0; j < x; j++) {
 
             for (int k = 0; k < y; k++) {
 
-                out[j][k] = r.nextDouble() < 0.2 ? new Tile(new Sprite("tile1"), 1.0f) : null;
+                out[j][k] = n.multiBetterOffset(j, k, 5, 0.05) > 0.3 ? new Tile(new Sprite("tile1"), 1.0f) : null;//r.nextDouble() < 0.2 ? new Tile(new Sprite("tile1"), 1.0f) : null;
+                
             }
         }
         return out;
